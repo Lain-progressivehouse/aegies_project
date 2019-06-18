@@ -14,7 +14,7 @@ def scatter(tsne, document_list):
     # sns.color_palette(sns.color_palette(n_colors=16))
 
     sns.set(font="IPAexGothic")
-    g = sns.lmplot(data=doc_tsne, x="x", y="y", hue="category", fit_reg=False, legend=False, size=8, legend_out=False, palette=sns.color_palette(n_colors=16))
+    g = sns.lmplot(data=doc_tsne, x="x", y="y", hue="category", fit_reg=False, legend=False, size=8, legend_out=False)
     box = g.ax.get_position()
     g.ax.set_position([box.x0, box.y0, box.width * 0.85, box.height])
     g.ax.legend(loc='center right', bbox_to_anchor=(1.25, 0.5), ncol=1)

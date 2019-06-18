@@ -2,11 +2,16 @@ from gensim.models import word2vec
 import logging
 
 def learn_word2vec(sentences):
+    # num_features = 200  # 次元数
+    # min_word_count = 20  # n回未満登場する単語を破棄
+    # num_workers = 40  # 複数のスレッドで処理
+    # context = 10  # 学習に使う前後の単語数
+    # downsampling = 1e-3  # 単語を無視する頻度
     num_features = 200  # 次元数
-    min_word_count = 20  # n回未満登場する単語を破棄
+    min_word_count = 10  # n回未満登場する単語を破棄
     num_workers = 40  # 複数のスレッドで処理
     context = 10  # 学習に使う前後の単語数
-    downsampling = 1e-3  # 単語を無視する頻度
+    downsampling = 1e-4  # 単語を無視する頻度
 
     logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
