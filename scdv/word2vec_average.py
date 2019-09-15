@@ -29,9 +29,9 @@ def word_vec_average(document_list, word2vec_model):
         plainDocVec_all[counter] = plain_word2vec_document_vector(sentence, word2vec_model, num_features)
         counter += 1
 
-    tsne = bhtsne.tsne(plainDocVec_all.astype(sp.float64), dimensions=2, perplexity=30.0, theta=0.5, rand_seed=-1)
+    # tsne = bhtsne.tsne(plainDocVec_all.astype(sp.float64), dimensions=2, perplexity=30.0, theta=0.5, rand_seed=-1)
 
-    return plainDocVec_all, tsne
+    return plainDocVec_all
 
 def get_learned_word2vec_average():
     model = KeyedVectors.load_word2vec_format('/Users/main/PycharmProjects/aegies/data/entity_vector/entity_vector.model.bin', binary=True)
