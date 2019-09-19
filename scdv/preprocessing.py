@@ -26,8 +26,9 @@ def document_to_paragraph(document):
 
 def document_to_wordlist(document):
     document = re.sub(r"\s[\s]+", " ", re.sub("[\n\t]", " ", document))
-    document = document.replace(" 市場動向 ", "").replace(" 競合状況 ", "")
-    document = re.sub(r"(20[0-9]{2}/[0-9]{1,2}/[0-9]{1,2}調査)", "", document)
+    # document = document.replace(" 市場動向 ", "").replace(" 競合状況 ", "")
+    # document = re.sub(r"(20[0-9]{2}/[0-9]{1,2}/[0-9]{1,2}調査)", "", document)
+    document = document.lower()
 
     tokenizer.parse("")
     node = tokenizer.parseToNode(document)

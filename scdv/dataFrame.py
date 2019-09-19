@@ -118,3 +118,22 @@ def make_dataFrame_add_date():
     #     pickle.dump(document_list, f)
 
     return document_list
+
+
+def make_dataFrame_new_data():
+    document_list = pd.DataFrame(columns=["stock_name", "date", "document"])
+
+    data_path = "/Users/lain./textdata/"
+
+    files = find_all_files(data_path)
+    for file in tqdm(list(files)):
+        with open(file, "r") as f:
+            word_list = preprocessing.document_to_wordlist(f.read())
+
+        s = os.path.basename(file).replace(".txt", "").split("-")
+
+        t = pd.Series([s[3], "{}-{}-{}".format(s[0], s[1], s[2]), word_list], index=document_list.columns)
+
+        document_list = document_list.append(t, ignore_index=True)
+
+    return document_list
