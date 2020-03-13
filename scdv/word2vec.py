@@ -1,5 +1,7 @@
 from gensim.models import word2vec
 import logging
+import os
+
 
 def learn_word2vec(sentences):
     # num_features = 200  # 次元数
@@ -21,5 +23,8 @@ def learn_word2vec(sentences):
     model.init_sims(replace=True)
 
     # modelを保存
-    model.save("/Users/main/PycharmProjects/aegies/data/word2vec.model")
+    if not os.path.exists("./data/model/"):
+        os.mkdir("./data/model/")
+    model.save("./data/model/word2vec.model")
+
     return model

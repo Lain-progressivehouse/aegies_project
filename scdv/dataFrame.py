@@ -120,10 +120,10 @@ def make_dataFrame_add_date():
     return document_list
 
 
-def make_dataFrame_new_data():
+def make_dataFrame_new_data(data_path="./data/text_data_"):
     document_list = pd.DataFrame(columns=["stock_name", "date", "document"])
 
-    data_path = "/Users/lain./textdata/"
+    # data_path = "/Users/lain./textdata/"
 
     files = find_all_files(data_path)
     for file in tqdm(list(files)):
